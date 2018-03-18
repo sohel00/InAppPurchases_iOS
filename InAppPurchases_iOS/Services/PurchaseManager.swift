@@ -9,6 +9,8 @@
 import Foundation
 import StoreKit
 
+typealias completionHandler = (_ status: Bool)->()
+
 class PurchaseManager: NSObject, SKProductsRequestDelegate, SKPaymentTransactionObserver {
     
     
@@ -17,6 +19,7 @@ class PurchaseManager: NSObject, SKProductsRequestDelegate, SKPaymentTransaction
     let IAP_REMOVE_ADS = "Nick.InAppPurchasesiOS.remove.ads"
     var productRequest: SKProductsRequest!
     var products = [SKProduct]()
+    var transactionComplete: completionHandler!
     
     func fetchProducts(){
         let productIds = NSSet(object: IAP_REMOVE_ADS) as! Set<String>
@@ -33,14 +36,20 @@ class PurchaseManager: NSObject, SKProductsRequestDelegate, SKPaymentTransaction
         }
     }
     
-    func purchaseRemoveAds(){
+    func purchaseRemoveAds(completion: @escaping completionHandler){
+        
         if SKPaymentQueue.canMakePayments() && products.count > 0 {
+            transactionComplete = completion
             let removeAdsProduct = products[0]
             let payment = SKPayment(product: removeAdsProduct)
             SKPaymentQueue.default().add(self)
             SKPaymentQueue.default().add(payment)
+        } else {
+            completion(false)
         }
     }
+    
+    
     
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         for transaction in transactions {
@@ -49,15 +58,20 @@ class PurchaseManager: NSObject, SKProductsRequestDelegate, SKPaymentTransaction
                 SKPaymentQueue.default().finishTransaction(transaction)
                 if transaction.payment.productIdentifier == IAP_REMOVE_ADS {
                     UserDefaults.standard.set(true, forKey: IAP_REMOVE_ADS)
+                    transactionComplete(true)
                 }
                 break
             case .failed:
                 SKPaymentQueue.default().finishTransaction(transaction)
+                transactionComplete(false)
                 break
             case .restored:
                 SKPaymentQueue.default().finishTransaction(transaction)
+                transactionComplete(true)
                 break
-            default: break
+            default:
+                transactionComplete(false)
+                break
             }
         }
     }

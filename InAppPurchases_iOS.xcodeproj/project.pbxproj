@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D0276E4205D10DB000C4A0A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D0276E3205D10DB000C4A0A /* StoreKit.framework */; };
 		7D4D111B205901C900E0EE7A /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D4D111A205901C900E0EE7A /* GoogleMobileAds.framework */; };
 		7D4D111F2059370400E0EE7A /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4D111E2059370400E0EE7A /* PurchaseManager.swift */; };
 		7DACFE902058FC01003272E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DACFE8F2058FC01003272E6 /* AppDelegate.swift */; };
@@ -14,10 +15,10 @@
 		7DACFE952058FC01003272E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DACFE932058FC01003272E6 /* Main.storyboard */; };
 		7DACFE972058FC01003272E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DACFE962058FC01003272E6 /* Assets.xcassets */; };
 		7DACFE9A2058FC01003272E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DACFE982058FC01003272E6 /* LaunchScreen.storyboard */; };
-		7DACFEA32058FFF2003272E6 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DACFEA22058FFF2003272E6 /* StoreKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7D0276E3205D10DB000C4A0A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		7D4D111A205901C900E0EE7A /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = "../../Downloads/GoogleMobileAdsSdkiOS-7.29.0/GoogleMobileAds.framework"; sourceTree = "<group>"; };
 		7D4D111E2059370400E0EE7A /* PurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
 		7DACFE8C2058FC01003272E6 /* InAppPurchases_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InAppPurchases_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -27,7 +28,6 @@
 		7DACFE962058FC01003272E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7DACFE992058FC01003272E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7DACFE9B2058FC01003272E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7DACFEA22058FFF2003272E6 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,7 +36,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D4D111B205901C900E0EE7A /* GoogleMobileAds.framework in Frameworks */,
-				7DACFEA32058FFF2003272E6 /* StoreKit.framework in Frameworks */,
+				7D0276E4205D10DB000C4A0A /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,8 +93,8 @@
 		7DACFEA12058FFF2003272E6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7D0276E3205D10DB000C4A0A /* StoreKit.framework */,
 				7D4D111A205901C900E0EE7A /* GoogleMobileAds.framework */,
-				7DACFEA22058FFF2003272E6 /* StoreKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -323,6 +323,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = InAppPurchases_iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Nick.InAppPurchases-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -343,6 +344,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = InAppPurchases_iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Nick.InAppPurchases-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
